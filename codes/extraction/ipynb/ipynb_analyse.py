@@ -1,5 +1,5 @@
 import nbformat
-from llm_chat import *
+from ...llm.llm_chat import *
 
 
 def parse_ipynb(file_path):
