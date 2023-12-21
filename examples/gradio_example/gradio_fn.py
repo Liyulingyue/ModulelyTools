@@ -1,5 +1,5 @@
-from py_analyse import *
-from ipynb_analyse import *
+from codes.extraction.py.py_analyse import *
+from codes.extraction.ipynb.ipynb_analyse import *
 import traceback
 import shutil
 import os

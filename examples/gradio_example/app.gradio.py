@@ -5,8 +5,8 @@ os.system("pip install nbconvert")
 
 
 import gradio as gr
-from markdown import *
-from gradio_fn import *
+from codes.static_str.markdown import *
+from .gradio_fn import *
 
 
 with gr.Blocks() as demo:
