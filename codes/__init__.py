@@ -1,2 +1,2 @@
-import llm
-import extraction
+from . import llm
+from . import extraction

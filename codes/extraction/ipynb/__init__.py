@@ -1,1 +1,1 @@
-import ipynb_analyse
+from . import ipynb_analyse

@@ -1,5 +1,5 @@
 import ast
-from llm_chat import *
+from ...llm.llm_chat import *
 
 
 def extract_function_defs(node, function_defs):
