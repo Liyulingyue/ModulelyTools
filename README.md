@@ -1,6 +1,23 @@
 # ModulelyTools
 一个基于LLM的函数模块化&amp;说明文档生成小工具，开发中~
 
+## 环境部署
+#### python版本
+```
+python >= 3.7
+```
+#### 安装依赖
+```
+pip install -r requirements.txt
+```
+#### 配置LLM相关参数(token)
+```
+# 1.复制example.env并命名为.env文件到项目根目录
+$ cp example.env .env
+
+# 2.修改.env文件中的token
+```
+
 ## 关于这个工具
 这是一个基于LLM的函数模块化小工具，设计功能是
 1. 给定一个.pynb文档，一键生成.py文件，.py文件具有较好的封装性。

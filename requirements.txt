@@ -1,2 +1,3 @@
 nbformat
 erniebot
+python-dotenv
