@@ -1,6 +1,4 @@
 import ast
-from ...llm.llm_chat import *
-
 
 def extract_function_defs(node, function_defs):
     if isinstance(node, ast.FunctionDef):
@@ -21,7 +19,7 @@ def get_function_defs(code):
     return function_defs  # a list, each element is [define of function/class, docstring]
 
 
-def get_intro_of_fun(fun_str):
+def get_intro_of_fun(fun_str, llm):
     try:
         prompt = f"""
         请帮我为这个函数或者类写一段说明介绍，并且以json的形式返回给我。
@@ -31,9 +29,9 @@ def get_intro_of_fun(fun_str):
         "说明介绍":str
         {str('}')}
         """
-        result = get_llm_answer(prompt)
+        result = llm.get_llm_answer(prompt)
         try:
-            json_dict = extract_json_from_llm_answer(result)
+            json_dict = llm.extract_json_from_llm_answer(result)
             return json_dict["说明介绍"]
         except:
             return result

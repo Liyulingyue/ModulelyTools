@@ -1,11 +1,10 @@
-from codes.extraction.ipynb.ipynb_analyse import *
+from codes.extraction.ModuleTools import ModuleTools
 import traceback
 
+mt = ModuleTools(llm_type="Ernie")
 ipynb_path = "example.ipynb"
 prompt = ""
 
-result = parse_ipynb(ipynb_path)
-ipynb_content = get_ipynb_content(result)
-model_list = get_model_list(ipynb_content)
-py_str = model_list2python(model_list, ipynb_content)
+py_str = mt.ipynb2py(ipynb_path=ipynb_path, prompt=prompt)
+
 print(py_str)
