@@ -3,7 +3,7 @@
 import requests
 import json
 
-from tokens import api_key
+from .tokens import api_key
 
 
 class Baichuan:
@@ -83,6 +83,15 @@ class Baichuan:
             print("请求失败，body:", response.text)
             print("请求失败，X-BC-Request-Id:", response.headers.get("X-BC-Request-Id"))
             return None
+
+    def extract_json_from_llm_answer(self, result):
+
+        return result
+
+    def get_llm_json_answer(self, prompt):
+        result = self.get_llm_answer(prompt)
+        json_dict = self.extract_json_from_llm_answer(result)
+        return json_dict
 
 if __name__ == "__main__":
     Baichuan().get_llm_answer(prompt="你是谁？")
