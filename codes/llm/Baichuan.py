@@ -84,9 +84,14 @@ class Baichuan:
             print("请求失败，X-BC-Request-Id:", response.headers.get("X-BC-Request-Id"))
             return None
 
-    def extract_json_from_llm_answer(self, result):
-
-        return result
+    def extract_json_from_llm_answer(self, result, start_str="```json", end_str="```", replace_list=["\n"]):
+        s_id = result.index(start_str)
+        e_id = result.index(end_str, s_id + len(start_str))
+        json_str = result[s_id + len(start_str):e_id]
+        for replace_str in replace_list:
+            json_str = json_str.replace(replace_str, "")
+        json_dict = json.loads(json_str)
+        return json_dict
 
     def get_llm_json_answer(self, prompt):
         result = self.get_llm_answer(prompt)
